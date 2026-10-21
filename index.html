@@ -3,292 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield Pro - Güvenlik Portalı</title>
+    <title>Deva Advert - Güncel Haberler ve Duyurular</title>
+    <meta name="description" content="Deva Advert - En güncel haberler, duyurular ve teknoloji gelişmeleri.">
+    <meta name="author" content="Enes Deva">
+
+    <!-- Google News & SEO Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Deva Advert Haber Portalı Yayın Hayatına Başladı",
+      "image": [
+        "https://via.placeholder.com/1200x675.png?text=Deva+Advert+Haber"
+      ],
+      "datePublished": "2026-10-21T10:00:00+03:00",
+      "dateModified": "2026-10-21T10:00:00+03:00",
+      "author": [{
+          "@type": "Person",
+          "name": "Enes Deva",
+          "url": "https://github.com"
+        }],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Deva Advert",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://via.placeholder.com/200x60.png?text=Deva+Advert"
+        }
+      },
+      "description": "Deva Advert dijital yayıncılık dünyasına hızlı bir adım attı."
+    }
+    </script>
+
     <style>
+        :root {
+            --primary-color: #0d6efd;
+            --dark-color: #121212;
+            --light-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --border-color: #e0e0e0;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background: radial-gradient(circle at center, #0d1117, #010409);
-            color: #e6edf3;
-            min-height: 100vh;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .header-content {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            overflow: hidden;
         }
 
-        /* Cam Temalı Kart Container */
-        .card {
-            background: rgba(22, 27, 34, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 520px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            text-align: center;
-            position: relative;
-        }
-
-        h1 {
+        .logo {
             font-size: 1.8rem;
-            margin-bottom: 8px;
-            color: #58a6ff;
-            letter-spacing: 1px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
         }
 
-        p.subtitle {
-            font-size: 0.9rem;
-            color: #8b949e;
-            margin-bottom: 25px;
+        .logo span {
+            color: var(--primary-color);
         }
 
-        /* Input ve Butonlar */
-        .input-group {
+        nav ul {
             display: flex;
-            flex-direction: column;
+            list-style: none;
             gap: 15px;
         }
 
-        input {
-            width: 100%;
-            padding: 14px 18px;
-            border-radius: 10px;
-            border: 1px solid #30363d;
-            background: #0d1117;
-            color: #3fb950;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-align: center;
-            outline: none;
-            transition: all 0.3s;
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
-        input:focus {
-            border-color: #58a6ff;
-            box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+        nav a:hover {
+            color: #fff;
         }
 
-        button {
-            width: 100%;
-            padding: 14px;
-            border-radius: 10px;
-            border: none;
-            background: linear-gradient(135deg, #238636, #2ea043);
-            color: white;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+        /* Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(46, 160, 67, 0.4);
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Sayaç ve Log Alanı */
-        .status-box {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .timer-display {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #f85149;
-            margin: 15px 0;
-            font-family: monospace;
-            text-shadow: 0 0 10px rgba(248, 81, 73, 0.4);
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #21262d;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .progress-fill {
-            width: 0%;
-            height: 100%;
-            background: #f85149;
-            transition: width 1s linear;
-        }
-
-        .logs {
-            background: #0d1117;
-            border: 1px solid #30363d;
+        /* Cards */
+        .card {
+            background: var(--card-bg);
             border-radius: 8px;
-            height: 120px;
-            padding: 10px;
-            font-family: monospace;
-            font-size: 0.85rem;
-            text-align: left;
-            overflow-y: auto;
-            color: #8b949e;
-        }
-
-        .log-entry {
-            margin-bottom: 4px;
-        }
-        .log-entry.success { color: #3fb950; }
-        .log-entry.warn { color: #d29922; }
-        .log-entry.danger { color: #f85149; }
-
-        /* Son Ekran */
-        .final-message {
-            display: none;
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #3fb950;
             padding: 20px;
-            background: rgba(63, 185, 80, 0.1);
-            border: 1px solid #2ea043;
-            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .news-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 3px 10px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .news-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Sidebar */
+        .sidebar-title {
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #aaa;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <h1>CYBERSHIELD PRO</h1>
-    <p class="subtitle">Sistem Analiz ve Temizleme Portalı</p>
-
-    <!-- Aşama 1: Numara Giriş Ekrani -->
-    <div id="step-input" class="input-group">
-        <input type="text" id="user-number" placeholder="Telefon veya Kimlik No Giriniz" autocomplete="off">
-        <button onclick="startSimulation()">SİSTEMİ TARAVE TEMİZLE</button>
-    </div>
-
-    <!-- Aşama 2 ve 3: Sayaç ve Konsol -->
-    <div id="step-status" class="status-box">
-        <div id="status-title" style="color: #8b949e; font-weight: 500;">Taramalar Başlatılıyor...</div>
-        <div id="timer" class="timer-display">30</div>
-        <div class="progress-bar">
-            <div id="progress-fill" class="progress-fill"></div>
+    <!-- Üst Menü -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">DEVA <span>ADVERT</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#haberler">Haberler</a></li>
+                    <li><a href="#kunye">Künye</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
         </div>
-        <div id="logs" class="logs"></div>
+    </header>
+
+    <div class="container main-layout">
+        
+        <!-- Ana Haber Alanı -->
+        <main>
+            <article class="card" id="haberler">
+                <span class="tag">Teknoloji & Medya</span>
+                <img src="https://via.placeholder.com/800x400.png?text=Deva+Advert+Haber+Gorseli" alt="Haber Görseli" class="news-img">
+                <h1 class="news-title">Deva Advert Dijital Yayıncılık Platformu Hizmete Açıldı</h1>
+                <div class="meta">
+                    <span><strong>Yazar:</strong> Enes Deva</span>
+                    <span><strong>Tarih:</strong> 21 Ekim 2026</span>
+                </div>
+                <p>Deva Advert, en güncel duyuruları ve teknoloji gelişmelerini okuyucularına sunmak amacıylayayın hayatına resmen başladı. Yenilikçi yayıncılık anlayışıyla tarafsız ve hızlı haber sunmayı hedefleyen platform, geniş haber kategorileriyle okuyucularına ulaşmayı planlıyor.</p>
+                <br>
+                <p>Google Haberler ve arama motorları için optimize edilmiş altyapısıyla Deva Advert, sektördeki gelişmeleri anlık olarak aktarmaya devam edecek.</p>
+            </article>
+        </main>
+
+        <!-- Yan Panel / Künye / İletişim (Google News Uyumluluğu İçin Şart) -->
+        <aside>
+            <!-- Künye Kartı -->
+            <div class="card" id="kunye">
+                <h3 class="sidebar-title">Künye & Yayın Bilgileri</h3>
+                <ul class="info-list">
+                    <li><strong>İmtiyaz Sahibi:</strong> Enes Deva</li>
+                    <li><strong>Genel Yayın Yönetmeni:</strong> Enes Deva</li>
+                    <li><strong>Yayın Dili:</strong> Türkçe</li>
+                    <li><strong>Yayın Türü:</strong> Dijital Haber & Duyuru</li>
+                </ul>
+            </div>
+
+            <!-- İletişim Kartı -->
+            <div class="card" id="iletisim">
+                <h3 class="sidebar-title">İletişim</h3>
+                <ul class="info-list">
+                    <li><strong>Telefon:</strong> 0551 832 9861</li>
+                    <li><strong>Yönetici:</strong> Enes Deva</li>
+                    <li><strong>Platform:</strong> Deva Advert</li>
+                </ul>
+            </div>
+        </aside>
+
     </div>
 
-    <!-- Aşama 4: Bitiş Ekrani -->
-    <div id="final-screen" class="final-message">
-        virüsler Kaspersky saklandı
-    </div>
-</div>
-
-<script>
-    let currentTimer = null;
-
-    function addLog(text, type = '') {
-        const logsDiv = document.getElementById('logs');
-        const entry = document.createElement('div');
-        entry.className = `log-entry ${type}`;
-        entry.textContent = `[${new Date().toLocaleTimeString()}] ${text}`;
-        logsDiv.appendChild(entry);
-        logsDiv.scrollTop = logsDiv.scrollHeight;
-    }
-
-    function startSimulation() {
-        const input = document.getElementById('user-number').value;
-        if (!input) {
-            alert("Lütfen geçerli bir numara girin!");
-            return;
-        }
-
-        // Giriş alanını gizle, durumu göster
-        document.getElementById('step-input').style.display = 'none';
-        document.getElementById('step-status').style.display = 'block';
-
-        // 1. Aşama: 30 Saniye Hacker Temizliği & Program Silme
-        runPhaseOne();
-    }
-
-    function runPhaseOne() {
-        let timeLeft = 30;
-        let progCount = 100;
-        const timerEl = document.getElementById('timer');
-        const fillEl = document.getElementById('progress-fill');
-        const titleEl = document.getElementById('status-title');
-
-        titleEl.textContent = "Hacker Saldırıları ve Zararlı Yazılımlar Temizleniyor...";
-        addLog("Ağ tespiti yapılıyor...", "warn");
-        addLog("Tespit Edilen Hacker Bağlantıları: 14", "danger");
-
-        // 30 saniye boyunca 100 programın silinmesini simüle eden zamanlayıcılar
-        const programInterval = setInterval(() => {
-            if (progCount > 0) {
-                // Rastgele isimli program silme simülasyonu
-                addLog(`Program kaldırıldı: sys_cache_pkg_${progCount}.exe`, "danger");
-                progCount--;
-            }
-        }, 280); // ~30 saniyede 100 tane bitirmek için
-
-        currentTimer = setInterval(() => {
-            timeLeft--;
-            timerEl.textContent = timeLeft;
-            fillEl.style.width = ((30 - timeLeft) / 30 * 100) + "%";
-
-            if (timeLeft === 20) {
-                addLog("Bütün aktif hacker oturumları devre dışı bırakıldı!", "success");
-            }
-            if (timeLeft === 10) {
-                addLog("Son sistem kalıntıları temizleniyor...", "warn");
-            }
-
-            if (timeLeft <= 0) {
-                clearInterval(currentTimer);
-                clearInterval(programInterval);
-                addLog("1. Aşama Tamamlandı. Sistem arındırıldı.", "success");
-                
-                // 2. Aşamaya Geç (30 Saniyelik İkinci Sayaç)
-                setTimeout(runPhaseTwo, 1500);
-            }
-        }, 1000);
-    }
-
-    function runPhaseTwo() {
-        let timeLeft = 30;
-        const timerEl = document.getElementById('timer');
-        const fillEl = document.getElementById('progress-fill');
-        const titleEl = document.getElementById('status-title');
-
-        // Ekran ve Renk Güncellemeleri
-        titleEl.textContent = "Derin Güvenlik Karantina İşlemi...";
-        timerEl.style.color = "#d29922";
-        fillEl.style.background = "#d29922";
-        fillEl.style.width = "0%";
-
-        addLog("Kaspersky Veri Tabanı Entegrasyonu Başlatılıyor...", "warn");
-
-        currentTimer = setInterval(() => {
-            timeLeft--;
-            timerEl.textContent = timeLeft;
-            fillEl.style.width = ((30 - timeLeft) / 30 * 100) + "%";
-
-            if (timeLeft % 5 === 0 && timeLeft > 0) {
-                addLog(`Şüpheli virüs blokları Kaspersky karantinasına aktarılıyor... (%${Math.round((30-timeLeft)/30*100)})`);
-            }
-
-            if (timeLeft <= 0) {
-                clearInterval(currentTimer);
-                // Son Aşamayı Göster
-                document.getElementById('step-status').style.display = 'none';
-                document.getElementById('final-screen').style.display = 'block';
-            }
-        }, 1000);
-    }
-</script>
+    <!-- Alt Bilgi -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Deva Advert. Tüm hakları saklıdır. Tasarım & Altyapı: Enes Deva</p>
+        </div>
+    </footer>
 
 </body>
 </html>
